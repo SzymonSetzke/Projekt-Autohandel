@@ -23,7 +23,7 @@ public class Main {
 
         System.out.println("Witaj!");
         System.out.println("Zaczynasz posiadając 25000$, nie posiadasz żadnych samochodów, ale masz dostęp do bazy kilkunastu aut, które możesz kupić.");
-        System.out.println("Aby wygrać uzbieraj 50000$");
+        System.out.println("Powodzenia!");
         myShop.addCar(new Cars());
 
         Scanner in = new Scanner(System.in);
