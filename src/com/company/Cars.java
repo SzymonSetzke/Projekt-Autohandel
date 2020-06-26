@@ -24,7 +24,7 @@ public class Cars {
 
     public Cars() {
         this.producer = producers[new Random().nextInt(producers.length)];
-        this.color = colors[new Random().nextInt(colors.length)];;
+        this.color = colors[new Random().nextInt(colors.length)];
         this.mileage = randomMileage;
         this.segment = setSegment();
         this.value = setRandomValue();
@@ -60,7 +60,7 @@ public class Cars {
     }
 
     public String toString() {
-        return "\n"+this.producer + ", color: " + this.color +", Mileage: " + this.mileage + " KM, Segment: "+this.segment+ ", value: " + decimalFormat(this.value)+"$";
+        return "\n"+this.producer + ", Kolor: " + this.color +", Przebieg: " + this.mileage + " KM, Segment: "+this.segment+ ", Wartość: " + decimalFormat(this.value)+"$";
     }
     private String decimalFormat(Double value) {
         DecimalFormat decimalFormat =  new DecimalFormat("#0.00");

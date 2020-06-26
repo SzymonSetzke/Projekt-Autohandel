@@ -1,7 +1,5 @@
 package com.company;
 
-
 public interface Buy {
-
-    void buy(CarsDB car,int i);
+    void buy(Database carDb,int i);
 }
