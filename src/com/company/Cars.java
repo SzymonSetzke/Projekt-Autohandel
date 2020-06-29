@@ -11,6 +11,8 @@ public class Cars {
     private final String segment;
     private Integer mileage;
     private Double value;
+    private static final Integer DEFAULT_PARTS_SIZE = 5;
+    public Parts parts;
 
     public String[] producers ={"VW","Audi","Ferrari","BMW","Kia","Mercedes","Lamborghini","Toyota","Seat","Porsche"};
     public String[] colors ={"White","Grey","Silver","Blue","Yellow","Green","Orange","Black","Red","Purple"};
@@ -28,6 +30,7 @@ public class Cars {
         this.mileage = randomMileage;
         this.segment = setSegment();
         this.value = setRandomValue();
+        this.parts = new Parts();
     }
     public String setSegment(){
         if(this.producer.equals("Ferrari") || this.producer.equals("Porsche") || this.producer.equals("Lamborghini")){
@@ -38,6 +41,14 @@ public class Cars {
         }else{
             return segments[2];
         }
+    }
+
+    public void setParts(){
+        new Parts();
+    }
+
+    public Parts getParts(){
+        return  this.parts;
     }
 
     public String getSegment(){

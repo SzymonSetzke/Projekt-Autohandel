@@ -3,10 +3,13 @@ package com.company;
 import java.util.HashSet;
 
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Database{
     public Set<Human> clientDB;
     public Set<Cars> carsDB;
+
+    int randomIndex = ThreadLocalRandom.current().nextInt(0, 5 + 1);
 
     public Database(){
         this.clientDB=new HashSet<Human>();
@@ -39,6 +42,21 @@ public class Database{
     }
     public void removeCar(Cars car) {
         this.carsDB.remove(car);
+    }
+
+    public void setParts(){
+        for(Cars car : this.carsDB)
+        {
+            car.setParts();
+        }
+    }
+
+    public void waitAWeek(){
+        removeCar(getCar(randomIndex));
+        removeCar(getCar(randomIndex+1));
+        this.carsDB.add(new Cars());
+        this.carsDB.add(new Cars());
+        System.out.println("Two new cars have appeared in the database");
     }
 
     public String toString(){
