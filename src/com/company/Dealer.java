@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -55,12 +56,22 @@ public class Dealer implements Buy, Sell {
         return this.name;
     }
     @Override
-    public void buy(Database carDb, int i) {
+    public void buy(Database carDb, int i) throws Exception {
+        if (this.getCash()< carDb.getValue(i)) {
+            throw new Exception("Masz za mało gotówki");
+        }
+        this.setCash(this.getCash() - carDb.getValue(i));
         this.setCash(this.getCash() - carDb.getValue(i));
         this.dealerCars.add(carDb.getCar(i));
-        transactionHistory.add(new Transactions(this, carDb,carDb.getCar(i),carDb.getValue(i), LocalDateTime.now()));
+        System.out.println("Kupiłeś "+carDb.getCar(i)+" za kwotę: "+ decimalFormat(carDb.getValue(i))+"$" );
+        transactionHistory.add(new Transactions(this, carDb,carDb.getCar(i),carDb.getValue(i),LocalDateTime.now()));
         carDb.removeCar(carDb.getCar(i));
         carDb.carsDB.add(new Cars());
+    }
+
+    private String decimalFormat(Double value) {
+        DecimalFormat decimalFormat =  new DecimalFormat("#0.00");
+        return decimalFormat.format(value);
     }
 
     @Override

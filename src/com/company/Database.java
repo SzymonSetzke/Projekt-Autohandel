@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.HashSet;
 
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -52,11 +53,11 @@ public class Database{
     }
 
     public void waitAWeek(){
-        removeCar(getCar(randomIndex));
-        removeCar(getCar(randomIndex+1));
+        removeCar(getCar(new Random().nextInt(9)));
+        removeCar(getCar(new Random().nextInt(9)));
         this.carsDB.add(new Cars());
         this.carsDB.add(new Cars());
-        System.out.println("Two new cars have appeared in the database");
+        System.out.println("Lista samochodów została zaktualizowana !\\n");
     }
 
     public String toString(){

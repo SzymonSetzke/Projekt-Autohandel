@@ -135,227 +135,239 @@ public class Main {
                     }while(key!=3);
                     break;
                 case 4:
-                    do{
-
+                    do {
+                        System.out.println("Wybierz samochód:");
+                        System.out.println("[1] Wybierz samochód do naprawy");
                         System.out.println("Wybierz mechanika:");
-                        System.out.println("[1] Wybierz samochód");
                         System.out.println("[2] Mechanik Janusz");
                         System.out.println("[3] Mechanik Marian");
                         System.out.println("[4] Mechanik Adrian");
                         System.out.println("[5] Cofnij");
-                        key=in.nextInt();
-                        switch (key){
+                        key = in.nextInt();
+                        switch (key) {
                             case 1:
                                 System.out.println(myShop.dealerCars);
                                 System.out.println("Wybierz samochód (id) :");
-                                carId=in.nextInt();
+                                carId = in.nextInt();
                                 break;
                             case 2:
-                                do{
-                                    System.out.println("[1] Części samochodowe");
-                                    System.out.println("Wybierz część do naprawy:");
-                                    System.out.println("[2] Silnik");
-                                    System.out.println("[3] Skrzynia biegów");
-                                    System.out.println("[4] Zawieszenie");
-                                    System.out.println("[5] Opony");
-                                    System.out.println("[6] Hamulce");
-                                    System.out.println("[7] Cofnij");
-                                    part=in.nextInt();
-                                    switch (part){
-                                        case 1:
-                                            System.out.println(myShop.getCar(carId).getParts());
-                                            break;
-                                        case 2:
-                                            partName="Silnik";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 3:
-                                            partName="Skrzynia biegów";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 4:
-                                            partName="Zawieszenie";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 5:
-                                            partName="Opony";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 6:
-                                            partName="Hamulce";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 7:
-                                            System.out.println("Cofam");
-                                            break;
+                                if (carId!=-1) {
+                                    do {
+                                        System.out.println("[1] Pokaż części");
+                                        System.out.println("Wybierz część do naprawy:    " + "Twoja gotówka: " + myShop.getCash() + "$");
+                                        System.out.println("[2] Silnik --- 50,000$");
+                                        System.out.println("[3] Skrzynia biegów --- 25,000$");
+                                        System.out.println("[4] Zawieszenie --- 7,000$");
+                                        System.out.println("[5] Opony --- 25,000$");
+                                        System.out.println("[6] Hamulce --- 4,000$");
+                                        System.out.println("[7] Cofnij");
+                                        part = in.nextInt();
+                                        switch (part) {
+                                            case 1:
+                                                System.out.println(myShop.getCar(carId).getParts());
+                                                break;
+                                            case 2:
+                                                partName = "Silnik";
+                                                try {
+                                                    mechanic1.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 3:
+                                                partName = "Skrzynia biegów";
+                                                try {
+                                                    mechanic1.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 4:
+                                                partName = "Zawieszenie";
+                                                try {
+                                                    mechanic1.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 5:
+                                                partName = "Opony";
+                                                try {
+                                                    mechanic1.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 6:
+                                                partName = "Hamulce";
+                                                try {
+                                                    mechanic1.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 7:
+                                                System.out.println("Cofam");
+                                                break;
 
-                                        default:
-                                            System.out.println("Zły numer byku");
-                                    }
-                                }while(part!=7);
+                                            default:
+                                                System.out.println("Zły numer byku");
+                                        }
+                                    } while (part != 7);
+                                } else {
+                                    System.out.println("Nie wybrałeś samochodu \n");
+                                }
                                 break;
                             case 3:
-                                do{
-                                    System.out.println("[1] Części samochodowe");
-                                    System.out.println("Wybierz część do naprawy:");
-                                    System.out.println("[2] Silnik");
-                                    System.out.println("[3] Skrzynia biegów");
-                                    System.out.println("[4] Zawieszenie");
-                                    System.out.println("[5] Opony");
-                                    System.out.println("[6] Hamulce");
-                                    System.out.println("[7] Cofnij");
-                                    part=in.nextInt();
-                                    switch (part){
-                                        case 1:
-                                            System.out.println(myShop.getCar(carId).getParts());
-                                            break;
-                                        case 2:
-                                            partName="Silnik";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 3:
-                                            partName="Skrzynia biegów";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 4:
-                                            partName="Zawieszenie";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 5:
-                                            partName="Opony";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 6:
-                                            partName="Hamulce";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 7:
-                                            System.out.println("Cofam");
-                                            break;
+                                if (carId!=-1) {
+                                    do {
+                                        System.out.println("[1] Pokaż części");
+                                        System.out.println("Wybierz część do naprawy:    " + "Twoja gotówka: " + myShop.getCash() + "$");
+                                        System.out.println("[2] Silnik --- 30,000$");
+                                        System.out.println("[3] Skrzynia biegów --- 15,000$");
+                                        System.out.println("[4] Zawieszenie --- 4,000$");
+                                        System.out.println("[5] Opony --- 15,000$");
+                                        System.out.println("[6] Hamulce --- 2,000$");
+                                        System.out.println("[7] Cofnij");
+                                        part = in.nextInt();
+                                        switch (part) {
+                                            case 1:
+                                                System.out.println(myShop.getCar(carId).getParts());
+                                                break;
+                                            case 2:
+                                                partName = "Silnik";
+                                                try {
+                                                    mechanic2.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 3:
+                                                partName = "Skrzynia biegów";
+                                                try {
+                                                    mechanic2.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 4:
+                                                partName = "Zawieszenie";
+                                                try {
+                                                    mechanic2.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 5:
+                                                partName = "Opony";
+                                                try {
+                                                    mechanic2.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 6:
+                                                partName = "Hamulce";
+                                                try {
+                                                    mechanic2.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 7:
+                                                System.out.println("Cofam");
+                                                break;
 
-                                        default:
-                                            System.out.println("Zły numer byku");
-                                    }
-                                }while(part!=7);
+                                            default:
+                                                System.out.println("Zły numer byku");
+                                        }
+                                    } while (part != 7);
+                                } else {
+                                    System.out.println("Nie wybrałeś samochodu \n");
+                                }
                                 break;
                             case 4:
-                                do{
-                                    System.out.println("[1] Części samochodowe");
-                                    System.out.println("Wybierz część do naprawy:");
-                                    System.out.println("[2] Silnik");
-                                    System.out.println("[3] Skrzynia biegów");
-                                    System.out.println("[4] Zawieszenie");
-                                    System.out.println("[5] Opony");
-                                    System.out.println("[6] Hamulce");
-                                    System.out.println("[7] Cofnij");
-                                    part=in.nextInt();
-                                    switch (part){
-                                        case 1:
-                                            System.out.println(myShop.getCar(carId).getParts());
-                                            break;
-                                        case 2:
-                                            partName="Silnik";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 3:
-                                            partName="Skrzynia biegów";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 4:
-                                            partName="Zawieszenie";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 5:
-                                            partName="Opony";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 6:
-                                            partName="Hamulce";
-                                            try {
-                                                mechanic1.repair(myShop,carId,partName);
-                                                numberOfTurns++;
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 7:
-                                            System.out.println("Cofam");
-                                            break;
+                                if (carId!=-1) {
+                                    do {
+                                        System.out.println("[1] pokaż części");
+                                        System.out.println("Wybierz część do narawy:    " + "Twoja gotówka: " + myShop.getCash() + "$");
+                                        System.out.println("[2] Silnik --- 10,000$");
+                                        System.out.println("[3] Skrzynia biegów --- 5,000$");
+                                        System.out.println("[4] Zawieszenie --- 2,000$");
+                                        System.out.println("[5] Opony --- 5,000$");
+                                        System.out.println("[6] Hamulce --- 1,000$");
+                                        System.out.println("[7] Cofnij");
+                                        part = in.nextInt();
+                                        switch (part) {
+                                            case 1:
+                                                System.out.println(myShop.getCar(carId).getParts());
+                                                break;
+                                            case 2:
+                                                partName = "Silnik";
+                                                try {
+                                                    mechanic3.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 3:
+                                                partName = "Skrzynia biegów";
+                                                try {
+                                                    mechanic3.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 4:
+                                                partName = "Zawieszenie";
+                                                try {
+                                                    mechanic3.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 5:
+                                                partName = "Opony";
+                                                try {
+                                                    mechanic3.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 6:
+                                                partName = "Hamulce";
+                                                try {
+                                                    mechanic3.repair(myShop, carId, partName);
+                                                    numberOfTurns++;
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case 7:
+                                                System.out.println("Cofam");
+                                                break;
 
-                                        default:
-                                            System.out.println("Zły numer byku");
-                                    }
-                                }while(part!=7);
+                                            default:
+                                                System.out.println("Zły numer byku");
+                                        }
+                                    } while (part != 7);
+                                } else {
+                                    System.out.println("Nie wybrałeś samochodu \n");
+                                }
                                 break;
                             case 5:
                                 System.out.println("Cofam");

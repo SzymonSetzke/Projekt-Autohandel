@@ -32,6 +32,12 @@ public class Cars {
         this.value = setRandomValue();
         this.parts = new Parts();
     }
+
+    public void setValue(Double price)
+    {
+        this.value=price;
+    }
+
     public String setSegment(){
         if(this.producer.equals("Ferrari") || this.producer.equals("Porsche") || this.producer.equals("Lamborghini")){
             return segments[0];
